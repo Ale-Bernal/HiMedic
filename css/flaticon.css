@@ -1,8 +1,7 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 16/08/2018 13:57
+  	Creation date: 04/01/2019 13:45
   	*/
-
 
 
 @font-face {
@@ -37,10 +36,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.flaticon-cardiogram:before { content: "\f100"; }
-.flaticon-neurology:before { content: "\f101"; }
-.flaticon-stethoscope:before { content: "\f102"; }
-.flaticon-tooth:before { content: "\f103"; }
-.flaticon-vision:before { content: "\f104"; }
-.flaticon-ambulance:before { content: "\f105"; }
-.flaticon-pharmacy:before { content: "\f106"; }
+.flaticon-doctor:before { content: "\f100"; }
+.flaticon-stethoscope:before { content: "\f101"; }
+.flaticon-ambulance:before { content: "\f102"; }
+.flaticon-24-hours:before { content: "\f103"; }
+.flaticon-experiment-results:before { content: "\f104"; }
+.flaticon-heart-rate:before { content: "\f105"; }
+.flaticon-dropper:before { content: "\f106"; }
+.flaticon-first-aid-kit:before { content: "\f107"; }
