@@ -15,8 +15,9 @@ btnLogin.addEventListener('click', function() {
         data: parametros,
         success: function(respuesta) {
             if (respuesta == true) {
-                alert("existe usuario")
                 document.getElementById("alertDanger").style.display = 'none';
+                window.location.href = "index.php";
+
 
             } else {
                 document.getElementById("alertDanger").style.display = 'block';

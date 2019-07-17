@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +9,7 @@
     <link rel="icon" type="image/png" href="./img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
+
         MiSalud
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -15,17 +18,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
 
-
-    <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/jquery-3.2.1.min.js"></script>
     <link href="./css/material-kit.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/jquery-3.2.1.min.js"></script>
 
 </head>
 
-<body class="index-page sidebar-collapse">
+<body class="index-page sidebar-collapse ">
+
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container">
             <div class="navbar-translate">
@@ -39,25 +42,28 @@
             </div>
             <div class="collapse navbar-collapse ">
                 <ul class="navbar-nav ml-auto">
-                    <li class="active nav-item">
-                        <a href="#pablo" class="nav-link">Inicio</a>
+                <li class="active nav-item">
+                        <a class="nav-link"><i class="material-icons">account_circle</i>
+                	<?php if($_SESSION['userName']<>""){
+						echo $_SESSION['userName'];
+   
+					}else{
+						header('location: ./login.html');
+                    } ?>
+                    </a>
+                    <button class="btn btn-danger" id="btnCloseSession">Cerrar sesión</button>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class=" nav-item">
+                        <a class="nav-link">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#pablo" class="nav-link">Historial Médico</a>
+                        <a class="nav-link">Mis Datos</a>
                     </li>
-                    <li class="dropdown nav-item">
-                        <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown">Dropdown</a>
-                        <div class="dropdown-menu">
-                            <h6 class="dropdown-header">Dropdown header</h6>
-                            <a href="#pablo" class="dropdown-item">Action</a>
-                            <a href="#pablo" class="dropdown-item">Another action</a>
-                            <a href="#pablo" class="dropdown-item">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#pablo" class="dropdown-item">Separated link</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#pablo" class="dropdown-item">One more separated link</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link">Contactanos</a>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -71,17 +77,18 @@
                         <div class="icon">
                             <span class="fa fa-ambulance" style="font-size:36px;"></span>
                         </div>
-                        <h3><a href="">Centros Médicos</a></h3>
-                        <p>Encuentre el centro médico más cercanos</p>
+                        <h3><a >Estudios Recientes</a></h3>
+                        <p>Visualizar los últimos estudios realizados</p>
+                        
                     </div>
                 </div>
                 <div class="department-wrap p-4 ftco-animate">
                     <div class="text p-2 text-center">
                         <div class="icon">
-                            <span class='fas fa-redo' style='font-size:36px'></span>
+                            <span class="material-icons" style='font-size:36px'>restore</span>
                         </div>
-                        <h3><a href="#">Estudios Recientes</a></h3>
-                        <p> xd </p>
+                        <h3><a href="">Centros Médicos</a></h3>
+                        <p>Encuentre el centro médico más cercanos</p>
                     </div>
                 </div>
 
@@ -92,7 +99,7 @@
                 <div class="department-wrap p-4 ftco-animate">
                     <div class="text p-2 text-center">
                         <div class="icon">
-                            <span class="flaticon-stethoscope"></span>
+                            <span class="fas fa-notes-medical" style="font-size:36px;"></span>
                         </div>
                         <h3><a href="#">Historial Clínico</a></h3>
                         <p>Cuantas veces te enfermaste we xd</p>
@@ -106,9 +113,9 @@
                 <div class="department-wrap p-4 ftco-animate">
                     <div class="text p-2 text-center">
                         <div class="icon">
-                            <span class="flaticon-stethoscope"></span>
+                            <span class="fas fa-stethoscope" style="font-size:36px;"></span>
                         </div>
-                        <h3><a href="#">Privilegios</a></h3>
+                        <h3><a href="#">Médicos Asociados</a></h3>
                         <p>Administre qué doctor podrá manejar y utilizar su historial médico</p>
                     </div>
                 </div>
@@ -118,31 +125,16 @@
     </div>
     </div>
 
+<script>
+    $("#btnCloseSession").click(function(){
+        <?php
+        session_destroy() 
+       ?>
+        window.location.href = "login.html";
 
-
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/scrollax.min.js"></script>
-
-
-    <script src="js/main.js"></script>
-    <script src="./js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="./js/core/popper.min.js" type="text/javascript"></script>
-    <script src="./js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-    <script src="./js/plugins/moment.min.js"></script>
-
-    <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-    <script src="./js/material-kit.js?v=2.0.5" type="text/javascript"></script>
+    })
+</script>
+    <script src="js/material-kit.js?v=2.0.5" type="text/javascript"></script>
 
 </body>
 

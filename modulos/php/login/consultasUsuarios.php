@@ -23,7 +23,8 @@ function consultarUsuario($identificador,  $passUser){
         $sentencia->closeCursor();
         
         if( count($resultado)>0)
-        { return true;
+        {
+            return true;
         }else { 
         return false ;
     }
